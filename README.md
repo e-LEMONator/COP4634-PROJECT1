@@ -2,13 +2,14 @@
 The first project for Systems and Networks I
 
 Included files:
-myshell.cpp
-parse.cpp
-parse.hpp
-param.cpp
-param.hpp
-MAKEFILE.
-README.md
+
+* myshell.cpp
+* parse.cpp
+* parse.hpp
+* param.cpp
+* param.hpp
+* MAKEFILE.
+* README.md
 
 Compiling and running:
 
