@@ -1,0 +1,9 @@
+CXX = c++
+CFLAGS = -std=c++11 -Wall -o
+OBJECTS = parse.o
+
+main: parse
+	$(CXX) $(CFLAGS) $(OBJECTS) myshell.exe myshell.cpp
+
+parse:
+	$(CXX) -c $(CFLAGS) parse.o parse.cpp
