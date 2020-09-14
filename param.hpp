@@ -3,14 +3,14 @@
 #define _COP_PARAM_
 #include <iostream>
 #define MAXARGS 32
-#define ptrprint(ptr) (ptr != nullptr) ? ptr : "NULL"
+
 class Param {
     private:
         friend class Parser;
-        char* inputRedirect;
-        char* outputRedirect;
+        std::string inputRedirect;
+        std::string outputRedirect;
         int argumentCount; 
-        char* argumentVector[MAXARGS];
+        std::string argumentVector[MAXARGS];
     public:
         Param();
         void printParams();
