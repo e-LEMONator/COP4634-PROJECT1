@@ -29,5 +29,7 @@ class Parser {
          * @returns String of argument at index
          */
         std::string getArg(int index);
+
+        Param getParsedParms();
 };
 #endif

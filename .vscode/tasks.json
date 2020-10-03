@@ -4,14 +4,15 @@
         {
             "type": "shell",
             "label": "C/C++: g++ build active file",
-            "command": "/usr/bin/g++",
-            "args": [
-                "-g",
-				"-o",
-				"${fileDirname}/${fileBasenameNoExtension}.exe",
-				"*.cpp",
-				"*.hpp"
-            ],
+            // "command": "/usr/bin/g++",
+            // "args": [
+            //     "-g",
+			// 	"-o",
+			// 	"${fileDirname}/${fileBasenameNoExtension}.exe",
+			// 	"*.cpp",
+			// 	"*.hpp"
+            // ],
+            "command": "make clean && make",
             "options": {
                 "cwd": "${workspaceFolder}"
             },

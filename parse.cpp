@@ -35,6 +35,7 @@ void Parser::parseString(std::string str) {
 void Parser::tokensToParam(const std::vector<std::string>& vec) {
     // see header comment in parser.hpp for more information. This is just tedious copying
     parms.argumentCount = (int)vec.size();
+    parms.numProcesses = std::stoi(vec.at(1));
     for(size_t i = 0; i < vec.size(); i++) {
         if(vec.at(i)[0] == '<') {
             parms.inputRedirect = vec.at(i);
@@ -53,4 +54,9 @@ std::string Parser::getArg(int index) {
     if (index <= parms.argumentCount) { // index check
         return parms.argumentVector[index];
     }
-} 
+    return "";
+}
+
+Param Parser::getParsedParms() {
+    return parms;
+}

@@ -2,7 +2,7 @@
 #include <string>
 #include "parse.hpp"
 int main(int argc, char** args) {
-    bool dbug = argc >= 1;
+    bool dbug = argc > 1;
     bool cont = true;
     do {
         std::cout << "$$$ ";
