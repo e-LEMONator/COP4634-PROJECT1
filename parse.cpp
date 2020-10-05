@@ -1,4 +1,5 @@
 #include "parse.hpp"
+#include "debugger.hpp"
 
 Parser::Parser () { } // we don't have anything to set
 

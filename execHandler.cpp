@@ -48,6 +48,17 @@ void ExecutableHandler::executeAndWait() {
             continue;
         } else if(pid == 0) { // child
             char* const* args = buildArgVec(i);
+            #ifdef DEBUG
+            // FILE* file;
+            // std::string fname = "output" + std::to_string(i) + ".txt";
+            // file = freopen(fname.c_str(), "w", stdout);
+            // std::cout << file << std::endl;
+            for(int j = 0; j < param.getArgumentCount() + EXECMINARGS; j++) {
+                dbgf("output.txt","ExecutableHandler::executeAndWait", "argV[" << j << "]: " << args[j]);
+            }
+            // fflush(stdout);
+            // fclose(file);
+            #endif
             execv(param.getArgv()[0].c_str(), args);
             break;
         } else {
