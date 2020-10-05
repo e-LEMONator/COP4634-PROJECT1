@@ -34,6 +34,7 @@ char* const* ExecutableHandler::buildArgVec(const int& id) {
 void ExecutableHandler::executeAndWait() {
     pid_t pid, wpid;
     int status = 0;
+    // creates numProcesses child processes
     // credit: https://stackoverflow.com/a/10911719
     for(int i = 0; i < param.getNumProcesses(); i++) {
         pid = fork();
@@ -50,7 +51,7 @@ void ExecutableHandler::executeAndWait() {
     }
     // parent wait
     if(pid > 0) {
-        // somehow this magic means that the parent just waits until all children are dead
+        // parent waits until all children are exit
         // https://stackoverflow.com/a/23872806
         while ((wpid = wait(&status)) > 0);
     } else { // the child has finished their job, they are no longer needed

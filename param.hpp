@@ -2,8 +2,8 @@
 #ifndef _COP_PARAM_
 #define _COP_PARAM_
 #include <iostream>
-#define MAXARGS 32
-#define MINARGS 2
+#define MAXARGS 32  // maximum args to be accepted, per Project 1.pdf
+#define MINARGS 2   // minimum args for shell to execv() a process.
 
 class Param {
     private:
