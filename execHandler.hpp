@@ -9,6 +9,7 @@
 #include <sys/wait.h>
 #include <stdio.h>
 #include <unistd.h>
+#define EXECMINARGS 2 // the minimum args that the execv() system call requires
 
 class ExecutableHandler {
     private:

@@ -14,7 +14,7 @@ ExecutableHandler::~ExecutableHandler() {
 char* const* ExecutableHandler::buildArgVec(const int& id) {
     auto pArgVec = param.getArgv();
     int argCount = param.getArgumentCount();
-    char* const* nArgV = new char*[MAXARGS+1];
+    char* const* nArgV = new char*[MAXARGS+EXECMINARGS];
     if(argCount < MINARGS) {
         // todo: they have not given us a correctly formatted command
     } else {
