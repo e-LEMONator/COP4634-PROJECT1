@@ -1,10 +1,12 @@
 #include "execHandler.hpp"
+#include "debugger.hpp"
 
 ExecutableHandler::ExecutableHandler(const Param& _parm) {
     param = _parm;
 }
 
 ExecutableHandler::~ExecutableHandler() {
+    dbg("ExecutableHandler::~ExecutableHandler", "Cleaning up created argvs...");
     for(auto& ptr : argvs) {
         if (ptr)
             delete ptr;
@@ -17,6 +19,9 @@ char* const* ExecutableHandler::buildArgVec(const int& id) {
     char* const* nArgV = new char*[MAXARGS+EXECMINARGS];
     if(argCount < MINARGS) {
         // todo: they have not given us a correctly formatted command
+        dbg("ExecutableHandler::buildArgVec", "Argcount < MINARGS");
+        delete nArgV;
+        return nullptr;
     } else {
         // nArgV[2] = std::to_string(id).c_str();
         strcpy(nArgV[MINARGS],pArgVec[id].c_str());
@@ -26,12 +31,13 @@ char* const* ExecutableHandler::buildArgVec(const int& id) {
             }
             strcpy(nArgV[i],pArgVec[i].c_str());
         }
-        argvs.push_back(nArgV);
+        argvs.push_back(nArgV); // no matter what, we want to track this memory so we can delete it
         return nArgV;
     }
 }
 
 void ExecutableHandler::executeAndWait() {
+    dbg("ExecutableHandler::executeAndWait", "Forking " << param.getNumProcesses() << " processes...");
     pid_t pid, wpid;
     int status = 0;
     // creates numProcesses child processes

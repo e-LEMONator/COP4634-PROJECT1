@@ -35,6 +35,16 @@ void Parser::parseString(std::string str) {
 void Parser::tokensToParam(const std::vector<std::string>& vec) {
     // see header comment in parser.hpp for more information. This is just tedious copying
     parms.argumentCount = (int)vec.size();
+    if(parms.argumentCount < MINARGS) {
+        // we need to copy as many arguments as we can, as it may determine if we exit or not
+        // however, we will skip the general parsing of this into the syntax as defined, since it 
+        // clearly does not fit the definition
+        dbg("Parser::tokensToParam", "Command does not have enough arguments");
+        for(size_t i = 0; i < vec.size(); i++) {
+            parms.argumentVector[i] = vec.at(i);
+        }
+        return; // skip extra processing; this command is not correctly formatted
+    }
     parms.numProcesses = std::stoi(vec.at(1));
     for(size_t i = 0; i < vec.size(); i++) {
         if(vec.at(i)[0] == '<') {

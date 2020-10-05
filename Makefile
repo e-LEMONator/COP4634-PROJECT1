@@ -1,17 +1,20 @@
 CXX = c++
-CFLAGS = -std=c++11 -Wall -o
+CFLAGS = -std=c++11 -Wall 
 
 main: parse execHandler
-	$(CXX) $(CFLAGS) myshell *.cpp 
+	$(CXX) $(CFLAGS) -o myshell.exe *.cpp 
 
 execHandler: param
-	$(CXX) -c $(CFLAGS) execHandler.o execHandler.cpp
+	$(CXX) -c $(CFLAGS) -o execHandler.o execHandler.cpp
 
 parse: param
-	$(CXX) -c $(CFLAGS) parse.o parse.cpp
+	$(CXX) -c $(CFLAGS) -o parse.o parse.cpp
 
 param:
-	$(CXX) -c $(CFLAGS) param.o param.cpp
+	$(CXX) -c $(CFLAGS) -o param.o param.cpp
 
 clean:
 	$(RM) *.o *.gch core myshell
+
+debug: CFLAGS += -D DEBUG
+debug: main
