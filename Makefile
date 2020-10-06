@@ -14,7 +14,7 @@ param:
 	$(CXX) -c $(CFLAGS) -o param.o param.cpp
 
 clean:
-	$(RM) *.o *.gch core myshell
+	$(RM) *.o *.gch core myshell *.exe
 
 debug: CFLAGS += -D DEBUG
 debug: main

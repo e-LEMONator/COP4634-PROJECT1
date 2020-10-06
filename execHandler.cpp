@@ -14,6 +14,7 @@ ExecutableHandler::~ExecutableHandler() {
 }
 
 char* const* ExecutableHandler::buildArgVec(const int& id) {
+    dbg("ExecutableHandler::buildArgVec", "Building argument vector for id: " << id);
     auto pArgVec = param.getArgv();
     int argCount = param.getArgumentCount();
     char* const* nArgV = new char*[MAXARGS+EXECMINARGS];
