@@ -34,3 +34,4 @@
 
 #Visual Studio Configuration files
 # .vscode/*
+*.txt
