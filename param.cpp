@@ -1,3 +1,9 @@
+/**
+ * Contains implementation for class wrapper for information parsed from user input
+ * @author Levi Shaffer Joshua Lemon
+ * @date 10/05/2020
+ * @info COP4634 Project I
+ */
 #include "param.hpp"
 
 Param::Param() {
