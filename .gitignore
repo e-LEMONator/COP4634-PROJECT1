@@ -32,5 +32,9 @@
 *.app
 *.x
 
-#Visual Studio Configuration files
-.vscode/*
+# Visual Studio Configuration files
+# .vscode/*
+
+# Misc text files
+*.txt
+!infile.txt
