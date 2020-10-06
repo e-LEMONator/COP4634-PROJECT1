@@ -1,0 +1,3 @@
+infile_printer.exe 1 1 69
+infile_printer.exe 1 2 42
+infile_printer.exe 1 3 8675309
