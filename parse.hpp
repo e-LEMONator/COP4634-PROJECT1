@@ -1,3 +1,9 @@
+/**
+ * Contains definition for class wrapper to parse input from user into parameters the program can understand
+ * @author Levi Shaffer Joshua Lemon
+ * @date 10/05/2020
+ * @info COP4634 Project I
+ */
 #pragma once
 #ifndef _COP_PARSE_
 #define _COP_PARSE_

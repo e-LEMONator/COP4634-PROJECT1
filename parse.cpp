@@ -1,5 +1,10 @@
+/**
+ * Contains implementation for class wrapper to parse input from user into parameters the program can understand
+ * @author Levi Shaffer Joshua Lemon
+ * @date 10/05/2020
+ * @info COP4634 Project I
+ */
 #include "parse.hpp"
-#include "debugger.hpp"
 
 Parser::Parser () { } // we don't have anything to set
 
@@ -40,7 +45,6 @@ void Parser::tokensToParam(const std::vector<std::string>& vec) {
         // we need to copy as many arguments as we can, as it may determine if we exit or not
         // however, we will skip the general parsing of this into the syntax as defined, since it 
         // clearly does not fit the definition
-        dbg("Parser::tokensToParam", "Command does not have enough arguments");
         for(size_t i = 0; i < vec.size(); i++) {
             parms.argumentVector[i] = vec.at(i);
         }
@@ -49,9 +53,9 @@ void Parser::tokensToParam(const std::vector<std::string>& vec) {
     parms.numProcesses = std::stoi(vec.at(1));
     for(size_t i = 0; i < vec.size(); i++) {
         if(vec.at(i)[0] == '<') {
-            parms.inputRedirect = vec.at(i);
+            parms.inputRedirect = vec.at(i).substr(1);
         } else if (vec.at(i)[0] == '>') {
-            parms.outputRedirect = vec.at(i);
+            parms.outputRedirect = vec.at(i).substr(1);
         }
         parms.argumentVector[i] = vec.at(i);
     }
