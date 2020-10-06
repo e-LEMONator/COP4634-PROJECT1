@@ -10,8 +10,8 @@ int main(int argc, char** argv)
 	infile.open (argv[2]);
         while(!infile.eof()) // To get you all the lines.
         {
-	        getline(infile,string); // Saves the line in STRING.
-	        std::cout<<string; // Prints our STRING.
+	        getline(infile,string); // Saves the line in string.
+	        std::cout<<string; // Prints our string.
         }
     // Closes file
 	infile.close();
